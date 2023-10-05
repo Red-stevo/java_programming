@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Selection_statements
@@ -19,19 +20,28 @@ class Selection_statements
 
                     //Reading data from the user
             //----------------------------------------------------------------------------
-            Scanner input = new Scanner(System.in);
-            for(int i=0;i<Score.length;i++)
+            try(Scanner input = new Scanner(System.in))
             {
-                System.out.print("Enter your Unit name"+(i+1)+"\nName: ");
-                Unit_name[i] = input.next();
+               for(int i=0;i<Score.length;i++)
+                {
+                    System.out.print("Enter your Unit name"+(i+1)+"\nName: ");
+                    Unit_name[i] = input.next();
 
-                System.out.print("Enter your Unit Code"+(i+1)+"\nCode: ");
-                Unit_code[i]= input.next();
+                    System.out.print("Enter your Unit Code"+(i+1)+"\nCode: ");
+                    Unit_code[i]= input.next();
 
-                System.out.print("Enter your Score "+(i+1)+"\nScore: " );
-                Score[i] = input.nextInt();
+                    System.out.print("Enter your Score "+(i+1)+"\nScore: " );
+                    Score[i] = input.nextInt();
+                }
             }
-
+            catch(InputMismatchException e)
+            {
+                System.out.println("Invalid entry.");
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
                         //computing total and the average and the grade.
             //-----------------------------------------------------------------------------
             //for loop to calculate the totals of the scores
@@ -97,8 +107,5 @@ class Selection_statements
             System.out.println("40-50\t\tD");
             System.out.println("Below 40 \tF");
             System.out.println("------------------------------------------------------------------------------");
-            //closing the refence variable
-            //--------------------------------------------------------------------------------
-            input.close();
         }
 }
