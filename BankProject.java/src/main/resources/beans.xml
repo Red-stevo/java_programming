@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="Login" class="Bank.BankProject.java.Login" />
+    <bean id="inputHandler" class="Bank.BankProject.java.inputHandler" />
+    <bean id="MenuHandler" class="Bank.BankProject.java.MenuHandler" />
+
+    <bean id="CurrentAccount" class="Bank.BankProject.java.CurrentAccount" >
+        <constructor-arg name="accountNumber" value="A101" type="String"/>
+        <constructor-arg name="userName" value="Stephen Muiru" type="String"/>
+        <constructor-arg name="accountPhoneNumber" value="0110555949" type="String"/>
+        <constructor-arg name="accountEmail" value="stephen.muiru22@students.dkut.ac.ke"  type="String"/>
+        <constructor-arg name="accountBalance" value="500.00"  type="double"/>
+    </bean>
+    <bean id="SavingsAccount" class="Bank.BankProject.java.SavingsAccount">
+        <constructor-arg name="accountNumber" value="A101" type="String"/>
+        <constructor-arg name="userName" value="Stephen Muiru" type="String"/>
+        <constructor-arg name="accountPhoneNumber" value="0110555949" type="String"/>
+        <constructor-arg name="accountEmail" value="stephen.muiru22@students.dkut.ac.ke"  type="String"/>
+    </bean>
+</beans>
